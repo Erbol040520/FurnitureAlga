@@ -1,0 +1,14 @@
+img{
+    display: inline-block;
+    height: auto;
+    max-width: 100%;
+    width: 348px;
+    height: 217px;
+    }
+.description{
+    margin-top: 20px;
+    font-size: 25px;
+}
+.anons{
+    font-size: 19px;
+}

@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'MainBlog/css/main.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div class="collapse bg-dark" id="navbarHeader">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-md-7 py-4">
+                        <h4 class="text-white">Про Нас</h4>
+                        <p class="text-muted">Этот сайт получился хреновым, позже добавлю сюда более расшириный
+                            интерфейс и
+                            функционал, когда-нибудь
+                        </p>
+                    </div>
+                    <div class="col-sm-4 offset-md-1 py-4">
+                        <h4 class="text-white">Контакты</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="https://vk.com/id389440924" class="text-white">Следуйте в VK</a></li>
+                            <li><a href="#" class="text-white">WhatsApp: 8 775 625 9926</a></li>
+                            <li><a href="#" class="text-white">WhatsApp: 8 745 695 2359</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container d-flex justify-content-between">
+                <a href="#" class="navbar-brand d-flex align-items-center">
+                    <strong>ИП Карлыгаш</strong>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
+                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+
+    {% block content %}
+    <div class="container bg-light mt-5">
+        <div class="row">
+            {% for el in model %}
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="image_furniture">
+                        <img src="{{ el.img_picture_1.url }}" class="img-responsive" alt="">
+                    </div>
+                    <div class="card-body">
+                        <!-- <p class="card-text">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">{{ el.title }}</font>
+                                    <font style="vertical-align: inherit;">{{ el.anons }}</font>
+                                </font>
+                            </p> -->
+                        <div class="card-text">
+                            <h4 class="pb-4">{{ el.title }}</h4>
+                            <!-- <p>{{ el.description|truncatewords:4 }}</p> -->
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">
+                                    <!-- <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;">Посмотреть</font>
+                                        </font> -->
+                                    <a href="{% url 'furniture_pk' el.id %}">Посмотреть</a>
+                                </button>
+                                <!-- <button type="button" class="btn btn-sm btn-outline-secondary">
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;">редактировать</font>
+                                        </font>
+                                    </button> -->
+                            </div>
+                            <!-- <small class="text-muted">
+                                    <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">{{ el.price }}</font>
+                                </font> 
+                            </small> -->
+                            <h5>{{ el.price }}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endblock %}
+
+
+    <footer class="container p-5">
+        <hr class="pt-5">
+        <p class="float-right"><a href="#">Back to top</a></p>
+        <p>© 2020 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+    </footer>
+
+
+    <script src="{% static 'MainBlog/js/main.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
